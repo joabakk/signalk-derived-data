@@ -1,6 +1,6 @@
 {
   "name": "signalk-derived-data",
-  "version": "1.28.1",
+  "version": "1.28.2",
   "description": "Plugin that derives signalk data from other signalk data",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "format": "prettier-standard calcs/*.js index.js",
     "changelog": "github-changes -o signalk -r signalk-derived-data -a --only-pulls --use-commit-body --data=pulls  --tag-name=v$npm_package_version",
     "create-release": "github-create-release --owner signalk --repository signalk-derived-data",
-    "release": "git tag -d v$npm_package_version ; git tag v$npm_package_version && git push --tags && git push && npm run create-release"
+    "release": "git tag -d v$npm_package_version ; git tag v$npm_package_version && git push --tags && git push && npm run create-release",
+    "test": "mocha"
   },
   "keywords": [
     "signalk-node-server-plugin"
@@ -39,7 +40,7 @@
     "@panaaj/sk-geodesy": "^1.0.2",
     "baconjs": "^0.7.88",
     "cubic-spline": "^1.0.4",
-    "geolib": "^2.0.24",
+    "geolib": "^3.3.1",
     "geolocation-utils": "^1.2.3",
     "lodash": "^4.17.4",
     "magvar": "^1.0.3",
@@ -47,9 +48,12 @@
   },
   "devDependencies": {
     "@signalk/github-create-release": "^1.2.0",
+    "chai": "^4.2.0",
+    "chai-json-equal": "0.0.1",
     "github-changes": "^1.0.4",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
+    "mocha": "^8.2.1",
     "prettier-standard": "^8.0.0"
   },
   "repository": {
